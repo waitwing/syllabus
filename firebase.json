@@ -1,0 +1,21 @@
+{
+  "hosting": {
+    "site": "syllabus",
+    "public": "public",
+    "predeploy": ["rm -rf public/_next && cp -r .next public/_next"],
+    "rewrites": [
+      {
+        "source": "!/@(_next|static|favicon.ico|manifest.json|robot.txt)/**",
+        "function": "next"
+      }
+    ]
+  },
+  "functions": {
+    "source": "functions",
+    "predeploy": [
+      "rm -rf functions/.next && cp -r .next functions/.next",
+      "rm -f functions/package.json && cp package.json functions",
+      "rm -f functions/yarn.lock && cp yarn.lock functions"
+    ]
+  }
+}
