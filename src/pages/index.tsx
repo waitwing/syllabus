@@ -1,1 +1,3 @@
-export default () => <img src="/static/react.png" />
+const Home = () => <img src="/static/react.png" />
+
+export default Home

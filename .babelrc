@@ -3,6 +3,34 @@
   "plugins": [
     ["@babel/plugin-proposal-decorators", { "legacy": true }],
     ["@babel/plugin-proposal-class-properties", { "loose": true }],
-    "babel-plugin-parameter-decorator"
+    "babel-plugin-parameter-decorator",
+    [
+      "module-resolver",
+      {
+        "root": ["."],
+        "alias": {
+          "functions": "./functions",
+          "src": "./src"
+        }
+      }
+    ],
+    [
+      "import",
+      {
+        "libraryName": "@material-ui/core",
+        "libraryDirectory": "",
+        "camel2DashComponentName": false
+      },
+      "@material-ui/core"
+    ],
+    [
+      "import",
+      {
+        "libraryName": "@material-ui/icons",
+        "libraryDirectory": "",
+        "camel2DashComponentName": false
+      },
+      "@material-ui/icons"
+    ]
   ]
 }

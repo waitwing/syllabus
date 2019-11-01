@@ -8,12 +8,23 @@
         "source": "!/@(_next|static|favicon.ico|manifest.json|robot.txt)/**",
         "function": "next"
       }
+    ],
+    "headers": [
+      {
+        "source": "/_next/static/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "31536000"
+          }
+        ]
+      }
     ]
   },
   "functions": {
     "source": "functions",
     "predeploy": [
-      "rm -rf functions/.next && cp -r .next functions/.next",
+      "rm -rf functions/.next && cp -r .next functions/.next && rm -rf functions/.next/static",
       "rm -f functions/package.json && cp package.json functions",
       "rm -f functions/yarn.lock && cp yarn.lock functions"
     ]

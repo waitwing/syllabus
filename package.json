@@ -9,12 +9,14 @@
   },
   "scripts": {
     "dev": "next",
-    "build": "next build",
+    "build": "rm -rf .next && next build && rm -rf .next/cache",
     "start": "next start",
     "predeploy": "yarn build",
     "deploy": "firebase deploy --only functions,hosting"
   },
   "dependencies": {
+    "@material-ui/core": "^4.5.2",
+    "@material-ui/icons": "^4.5.1",
     "firebase-admin": "^8.6.1",
     "firebase-functions": "^3.3.0",
     "next": "^9.1.1",
@@ -26,6 +28,8 @@
     "@babel/plugin-proposal-decorators": "^7.6.0",
     "@types/node": "^12.7.12",
     "@types/react": "^16.9.5",
+    "babel-plugin-import": "^1.12.2",
+    "babel-plugin-module-resolver": "^3.2.0",
     "babel-plugin-parameter-decorator": "^1.0.9",
     "husky": "^3.0.8",
     "prettier": "^1.18.2",
